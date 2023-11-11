@@ -66,7 +66,7 @@ void OlderBitFromInt()
 		std::cin >> number;
 		std::cout << "Your number in bits :";
 		PrintWithBit_32_t(number);
-		mask = 1 << 30;
+		mask = 1 << 31;
 		while (number < mask)
 		{
 			mask >>= 1;
