@@ -23,33 +23,42 @@ void GlueBits()
 	std::cout << "Operation glue bits " << std::endl;
 
 	while (true)
-	{
-		int number{ };
+	{  
 		std::cout << "Enter any number, please :";
+		int number{ };
 		std::cin >> number;
+		
 		std::cout << "Your number in bits :";
 		PrintWithBit_32_t(number);
-		int i{ };
+
 		std::cout << "Which bit to glue :";
+		int i{ };
 		std::cin >> i;
+		
 		int mask{ 0 };
 		int mask_2{ 0 };
+		
 		for (int currentIndex = 0; currentIndex < i; ++currentIndex)
 		{
 			int nextBit{ 1 };
 			nextBit = nextBit << currentIndex;
-			
 			mask |= nextBit;	
 		}
+		
 		int shiftNumbers = number & mask;
 		shiftNumbers <<= 1;
+		
 		mask_2 = ~ mask;
 		int dontShiftNumbers = mask_2 & number;
+		
 		number = shiftNumbers | dontShiftNumbers;
+		
 		std::cout << "Your number in bits after glue :";
 		PrintWithBit_32_t(number);
-		std::cout << "Your number in digits after glue :";
+		
+		std::cout << "Your number after glue :";
 		PRINT(number);
+		
 		system("pause");
 		system("cls");
 
@@ -59,20 +68,23 @@ void GlueBits()
 
 void OlderBitFromInt()
 {
-		std::cout << "Enter any number, please :";
-		unsigned int mask{ };
-		unsigned int number{ };
-		int i{ };
-		std::cin >> number;
-		std::cout << "Your number in bits :";
-		PrintWithBit_32_t(number);
-		mask = 1 << 31;
-		while (number < mask)
-		{
-			mask >>= 1;
-		}
-		std::cout << "Older bit in your number :";
-		PrintWithBit_32_t(mask);
+	std::cout << "Enter any number, please :";
+	unsigned int number{ };
+	std::cin >> number;
+	
+	std::cout << "Your number in bits :";
+	PrintWithBit_32_t(number);
+
+	unsigned int mask{ };
+	mask = 1 << 31;
+	
+	while (number < mask)
+	{
+		mask >>= 1;
+	}
+	
+	std::cout << "Older bit in your number :";
+	PrintWithBit_32_t(mask);
 }
 
 void ClearBitFromNumber()
