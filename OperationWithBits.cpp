@@ -90,18 +90,25 @@ void OlderBitFromInt()
 void ClearBitFromNumber()
 {
 	std::cout << "Enter any number, please :";
-	int mask{ 0b00000001 };
-	int num{}, i{ };
+	int num{ };
 	std::cin >> num;
+
+	int i{ };
+	int mask{ 0b00000001 };
+	
 	std::cout << "Your number in bits :";
 	PrintWithBit_32_t(num);
+	
 	std::cout << "Which bit to clear :";
 	std::cin >> i;
+	
 	mask <<= i;
 	mask = ~mask;
 	num &= mask;
+	
 	std::cout << "Your number in bits after clear :";
 	PrintWithBit_32_t(num);
+	
 	std::cout << "Your number after clear :";
 	std::cout << num << std::endl;
 }
@@ -110,16 +117,20 @@ void SnakeBits()
 {
 	while (true)
 	{
-	
 		int number{ }, shiftToLeft{ };
 		std::cout << "Enter a number from 0 to 255 :";
 		std::cin >> number;
+		
 		PrintWithBit_8_t(number);
+		
 		std::cout << "How much shift to left :";
 		std::cin >> shiftToLeft;
+		
 		number = (number << shiftToLeft) | (number >> (8 - shiftToLeft));
+		
 		std::cout << "Your namber in bits after shift :";
 		PrintWithBit_8_t(number);
+		
 		std::cout << "Your number after shift :";
 		PRINT(int(int8_t(number)));
 	}
@@ -130,11 +141,12 @@ void CountNumberTwo()
 	std::cout << "Press any number, please :";
 	int value{ };
 	std::cin >> value;
+	PrintWithBit_32_t(value);
+	
 	int result{ };
 	int mask1{ };
 	int mask2{ 0b01 };
 	int mask3{ 0b11 };
-	PrintWithBit_32_t(value);
 
 	while (value > 0)
 	{
@@ -153,11 +165,12 @@ void CountNumberNull()
 	std::cout << "Press any number, please :";
 	int value{ };
 	std::cin >> value;
+	PrintWithBit_32_t(value);
+	
 	int result{ };
 	int mask1{  };
 	int mask2{ 0b11 };
 	int mask3{ 0b11 };
-	PrintWithBit_32_t(value);
 
 	while (value > 0)
 	{
